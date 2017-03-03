@@ -18,6 +18,12 @@ import java.util.Scanner;
 
 public class PornGen extends JFrame{
 
+  private class Generate implements ActionListener{
+    public void actionPerformed(ActionEvent e){
+      generate();
+    }
+  }
+
   private JButton generate;
   private JPanel panel;
   private JLabel image;
@@ -85,12 +91,6 @@ public class PornGen extends JFrame{
         System.out.printf("%s\n", f.getName());
         porn.addImages(f.getName());
       }
-    }
-  }
-
-  class Generate implements ActionListener{
-    public void actionPerformed(ActionEvent e){
-      generate();
     }
   }
 
