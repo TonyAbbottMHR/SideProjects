@@ -32,7 +32,7 @@ public class Porn extends JFrame{
         remove(pic);
       }
       Random rand = new Random();
-      Integer i = rand.nextInt(3);
+      Integer i = rand.nextInt(4);
       BufferedImage myPicture = ImageIO.read(this.getClass().getResource(String.format("%s.jpg", i.toString())));
       pic = new JLabel(new ImageIcon(myPicture));
       add(pic);
