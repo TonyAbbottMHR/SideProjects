@@ -14,6 +14,7 @@ import java.awt.BorderLayout;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 public class PornGen extends JFrame{
 
@@ -21,7 +22,7 @@ public class PornGen extends JFrame{
   private JPanel panel;
   private JLabel image;
   private ArrayList<JLabel> images;
-  
+
   public PornGen(){
     super("PornGen0.2");
     panel = new JPanel(new BorderLayout());
@@ -65,11 +66,24 @@ public class PornGen extends JFrame{
 
   public static void main(String[] args){
     PornGen porn = new PornGen();
+    File save = new File("save.txt");
+    try{
+      Scanner scan = new Scanner(save);
+      while(scan.hasNextLine()){
+        String line = scan.nextLine();
+        System.out.printf("%s\n", line);
+        String part1 = line.split(" ")[2];
+        System.out.printf("%s\n", part1);
+      }
+    }
+    catch(Exception e){
+      System.err.printf("%s\n", e);
+    }
     File[] files = new File("Random/").listFiles();
     for (File f : files){
       if (f.getName().contains(".jpg") || f.getName().contains(".png")){
         System.out.printf("%s\n", f.getName());
-        porn.addImages(f.getName().toString());
+        porn.addImages(f.getName());
       }
     }
   }
